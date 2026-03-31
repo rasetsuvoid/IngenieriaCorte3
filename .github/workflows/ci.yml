@@ -22,6 +22,10 @@ jobs:
       - name: Install dependencies
         run: npm install --include=optional
 
+      - name: Install Rollup Linux native package
+        if: runner.os == 'Linux'
+        run: npm install --no-save @rollup/rollup-linux-x64-gnu
+
       - name: Lint and type-check
         run: npm run lint
 
